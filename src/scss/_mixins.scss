@@ -1,0 +1,29 @@
+@mixin media($width, $type: min) {
+  $breakpoints: (
+          "phone": 320px,
+          "phablet": 560px,
+          "tablet": 768px,
+          "desktop-small": 992px,
+          "desktop": 1200px,
+          "desktop-wide": 1440px
+  );
+  @if map_has_key($breakpoints, $width) {
+    $width: map_get($breakpoints, $width);
+    @if $type == max {
+      $width: $width - 1px;
+    }
+    @media only screen and (#{$type}-width: $width) {
+      @content;
+    }
+  }
+}
+
+@mixin font-family($name, $dir, $file, $weight) {
+  @font-face {
+    font-family: $name;
+    font-weight: $weight;
+    font-display: block;
+    src: url('../fonts/'+ $dir +'/' + $file + '.woff') format('woff'),
+    url('../fonts/'+ $dir +'/' + $file + '.woff2') format('woff2');
+  }
+}
