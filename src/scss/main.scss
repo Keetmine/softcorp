@@ -42,14 +42,16 @@ input, select {
   background: rgba(255, 255, 255, 0.85);
   border: 1px solid #FFFFFF;
   border-radius: 5px;
-  padding: 12px 10px;
+  padding: 4px 10px;
   font-size: 14px;
+  font-family: Lato, sans-serif;
   line-height: 18px;
 
   &::placeholder {
     font-size: 14px;
     line-height: 18px;
     color: #272733;
+    font-family: Lato, sans-serif;
   }
 
   &:focus {
@@ -58,6 +60,8 @@ input, select {
   }
 
   @include media(desktop-small) {
+    height: 48px;
+    padding: 12px 10px;
     font-size: 18px;
     line-height: 22px;
     &::placeholder {
@@ -565,10 +569,13 @@ input, select {
         display: flex;
         align-items: flex-end;
         justify-content: space-between;
-        font-size: 18px;
-        line-height: 22px;
+        font-size: 14px;
+        line-height: 18px;
         margin-bottom: 14px;
-
+        @include media(desktop-small) {
+          font-size: 18px;
+          line-height: 22px;;
+        }
         span {
           margin-left: 10px;
         }
@@ -577,9 +584,14 @@ input, select {
 
     &__file {
       .button {
+        font-size: 13px;
+        line-height: 16px;
         border-radius: 0;
         color: #272733;
-
+        @include media(desktop-small) {
+          font-size: 15px;
+          line-height: 18px;
+        }
         svg {
           margin-right: 10px;
         }
@@ -591,6 +603,9 @@ input, select {
     }
 
     & .button__large {
+      font-size: 13px;
+      line-height: 16px;
+
       margin-left: 30px;
       width: calc(100% - 30px);
       @include media(tablet) {
@@ -598,6 +613,14 @@ input, select {
         margin-left: 0;
         flex-flow: row wrap;
         width: 370px;
+      }
+      @include media(desktop-small) {
+        right: -86px;
+        content: "· · ·";
+      }
+      @include media(desktop-small) {
+        font-size: 15px;
+        line-height: 18px;
       }
     }
   }
